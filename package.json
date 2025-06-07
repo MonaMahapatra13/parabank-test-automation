@@ -1,0 +1,24 @@
+{
+  "name": "qacodechallenge",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --project=ui",
+    "test:api": "npx playwright test --project=api",
+    "test:all": "npx playwright test --project=ui --project=api",
+    "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.30"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "typescript": "^5.8.3"
+  }
+}
