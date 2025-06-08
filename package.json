@@ -11,11 +11,25 @@
     "test:ui": "npx playwright test --project=ui",
     "test:api": "npx playwright test --project=api",
     "test:all": "npx playwright test --project=ui --project=api",
-    "report": "npx playwright show-report"
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "report": "npx playwright show-report",
+    "report:junit": "npx playwright show-report test-results/junit.xml",
+    "clean": "rm -rf test-results/* playwright-report/*",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.30"
+    "@types/node": "^22.15.30",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

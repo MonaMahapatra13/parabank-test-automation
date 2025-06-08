@@ -17,17 +17,20 @@ This repository contains an automated test suite for ParaBank using Playwright. 
 ## Setup
 
 1. Clone the repository:
+
 ```bash
 git clone <your-repo-url>
 cd QaCodeChallenge
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Install Playwright browsers:
+
 ```bash
 npx playwright install
 ```
@@ -37,25 +40,42 @@ npx playwright install
 You can run tests using the following commands:
 
 - Run UI tests only:
+
 ```bash
 npm run test:ui
 ```
 
 - Run API tests only:
+
 ```bash
 npm run test:api
 ```
 
 - Run all tests:
+
 ```bash
 npm run test:all
 ```
+
+## Environment Variables
+
+The framework uses environment variables for configuration. Create a `.env` file based on `.env.example`:
+
+1. Copy `.env.example` to `.env`
+2. Update the values with your credentials and configuration
+
+For CI/CD, the following secrets need to be configured in GitHub:
+
+- `PARABANK_USERNAME`: Your ParaBank username
+- `PARABANK_PASSWORD`: Your ParaBank password
+- `SLACK_WEBHOOK_URL`: Webhook URL for Slack notifications
 
 ## CI/CD Pipeline
 
 The project is configured with GitHub Actions for continuous integration. The pipeline:
 
 1. Triggers on:
+
    - Push to main/master branch
    - Pull requests to main/master branch
    - Manual trigger (workflow_dispatch)
@@ -67,9 +87,48 @@ The project is configured with GitHub Actions for continuous integration. The pi
    - Runs API tests
    - Uploads test results as artifacts
 
+## CI/CD Pipeline Features
+
+The GitHub Actions workflow includes:
+
+1. **Automated Triggers**:
+
+   - Push to main/master branch
+   - Pull requests to main/master
+   - Daily runs at midnight UTC
+   - Manual trigger option
+
+2. **Enhanced Error Handling**:
+
+   - Automatic retries (3 attempts) for failed tests
+   - Separate UI and API test execution
+   - Continued execution on non-critical failures
+
+3. **Notifications and Reporting**:
+
+   - Slack notifications for test results
+   - Automatic GitHub issues for test failures
+   - Detailed test reports uploaded as artifacts
+   - Unique report naming with run numbers
+
+4. **Security**:
+   - Secure credential handling through GitHub Secrets
+   - Environment variable management
+   - No sensitive data in logs
+
+## Debugging Failed Tests
+
+When tests fail in the CI pipeline:
+
+1. Check the GitHub Actions run for detailed logs
+2. Download the test artifacts for screenshots and videos
+3. Review the automatically created GitHub issue
+4. Check Slack notifications for quick status updates
+
 ## Test Reports
 
 Test reports are automatically generated after each test run:
+
 - Local: Available in `playwright-report/` directory
 - CI/CD: Uploaded as artifacts in GitHub Actions
 
