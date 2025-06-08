@@ -1,5 +1,7 @@
 # ParaBank Test Automation Framework
 
+[![Playwright Tests](https://github.com/MonaMahapatra13/parabank-test-automation/actions/workflows/playwright.yml/badge.svg)](https://github.com/MonaMahapatra13/parabank-test-automation/actions/workflows/playwright.yml)
+
 This repository contains an automated test suite for ParaBank using Playwright. The framework includes both UI and API tests.
 
 ## Features
