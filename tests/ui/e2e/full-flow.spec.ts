@@ -1,7 +1,7 @@
 import { test } from '../fixtures';
-import { AccountPage } from '../../pages/AccountPage';
-import { TransferPage } from '../../pages/TransferPage';
-import { BillPayPage } from '../../pages/BillPayPage';
+import { AccountPage } from '../../../pages/AccountPage';
+import { TransferPage } from '../../../pages/TransferPage';
+import { BillPayPage } from '../../../pages/BillPayPage';
 
 /**
  * End-to-End Test Suite for ParaBank
