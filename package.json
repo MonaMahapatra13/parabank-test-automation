@@ -1,9 +1,9 @@
 {
-  "name": "qacodechallenge",
+  "name": "parabank-test-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automated test suite for ParaBank using Playwright",
   "license": "ISC",
-  "author": "",
+  "author": "Monalisa Mahapatra",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

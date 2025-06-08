@@ -19,8 +19,8 @@ This repository contains an automated test suite for ParaBank using Playwright. 
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
-cd QaCodeChallenge
+git clone https://github.com/MonaMahapatra13/parabank-test-automation.git
+cd parabank-test-automation
 ```
 
 2. Install dependencies:
@@ -184,4 +184,4 @@ Test reports are automatically generated after each test run:
 
 ## Support
 
-For any questions or issues, please [open an issue](your-repo-url/issues) on GitHub.
+For any questions or issues, please [open an issue](https://github.com/MonaMahapatra13/parabank-test-automation/issues) on GitHub.
