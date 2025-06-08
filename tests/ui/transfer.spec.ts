@@ -1,6 +1,6 @@
 import { test } from "./fixtures";
-import { AccountPage } from "../pages/AccountPage";
-import { TransferPage } from "../pages/TransferPage";
+import { AccountPage } from "../../pages/AccountPage";
+import { TransferPage } from "../../pages/TransferPage";
 
 test.describe("Fund Transfer", () => {
   test("Transfer funds between accounts", async ({ page, loggedInPage }) => {
