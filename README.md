@@ -75,11 +75,13 @@ For CI/CD, the following secrets need to be configured in GitHub:
 The test suite is organized into three main categories:
 
 1. **Unit Tests (`tests/ui/`)**
+
    - Individual feature tests
    - Quick feedback loop
    - Run on every PR and push
 
 2. **API Tests (`tests/api/`)**
+
    - Test ParaBank's REST services
    - Validate data integrity
    - Run on every PR and push

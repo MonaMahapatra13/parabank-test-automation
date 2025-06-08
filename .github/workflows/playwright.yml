@@ -46,7 +46,7 @@ jobs:
           TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
           TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
           HEADLESS: true
-          
+
       # Run E2E tests only on scheduled runs or manual triggers
       - name: Run E2E Tests
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -86,7 +86,7 @@ jobs:
             echo "Regular tests failed after retries"
             exit 1
           fi
-          
+
           if [[ "${{ github.event_name }}" == 'schedule' || "${{ github.event_name }}" == 'workflow_dispatch' ]]; then
             if [[ "${{ steps.e2e-tests.outcome }}" == 'failure' ]]; then
               echo "E2E tests failed"
@@ -96,7 +96,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-report-${{ github.run_number }}
           path: |
