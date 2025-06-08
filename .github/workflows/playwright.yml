@@ -59,8 +59,8 @@ jobs:
           npm run test:e2e
         env:
           CI: true
-          #TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
-          #TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
+          TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+          TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
           HEADLESS: true
 
       - name: Run API Tests
@@ -77,8 +77,8 @@ jobs:
           exit 1
         env:
           CI: true
-          #TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
-          #TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
+          TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+          TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
           HEADLESS: true
 
       - name: Process Test Results
