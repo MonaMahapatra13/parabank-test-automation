@@ -29,18 +29,32 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run UI Tests
-        id: ui-tests
+      - name: Run Regular Tests
+        id: regular-tests
         continue-on-error: true
         run: |
           for i in {1..3}; do
             echo "Attempt $i of 3"
-            if npm run test:ui; then
+            if npm run test:ci; then
               exit 0
             fi
             sleep 10
           done
           exit 1
+        env:
+          CI: true
+          TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+          TEST_USER_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
+          HEADLESS: true
+          
+      # Run E2E tests only on scheduled runs or manual triggers
+      - name: Run E2E Tests
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        id: e2e-tests
+        continue-on-error: true
+        run: |
+          echo "Running full E2E test suite..."
+          npm run test:e2e
         env:
           CI: true
           TEST_USER_USERNAME: ${{ secrets.PARABANK_USERNAME }}
@@ -68,9 +82,16 @@ jobs:
       - name: Process Test Results
         id: test-results
         run: |
-          if [[ "${{ steps.ui-tests.outcome }}" == 'failure' || "${{ steps.api-tests.outcome }}" == 'failure' ]]; then
-            echo "Tests failed after retries"
+          if [[ "${{ steps.regular-tests.outcome }}" == 'failure' || "${{ steps.api-tests.outcome }}" == 'failure' ]]; then
+            echo "Regular tests failed after retries"
             exit 1
+          fi
+          
+          if [[ "${{ github.event_name }}" == 'schedule' || "${{ github.event_name }}" == 'workflow_dispatch' ]]; then
+            if [[ "${{ steps.e2e-tests.outcome }}" == 'failure' ]]; then
+              echo "E2E tests failed"
+              exit 1
+            fi
           fi
 
       - name: Upload test results

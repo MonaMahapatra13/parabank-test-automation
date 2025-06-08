@@ -70,6 +70,36 @@ For CI/CD, the following secrets need to be configured in GitHub:
 - `PARABANK_PASSWORD`: Your ParaBank password
 - `SLACK_WEBHOOK_URL`: Webhook URL for Slack notifications
 
+## Test Organization
+
+The test suite is organized into three main categories:
+
+1. **Unit Tests (`tests/ui/`)**
+   - Individual feature tests
+   - Quick feedback loop
+   - Run on every PR and push
+
+2. **API Tests (`tests/api/`)**
+   - Test ParaBank's REST services
+   - Validate data integrity
+   - Run on every PR and push
+
+3. **End-to-End Tests (`tests/ui/e2e/`)**
+   - Full user journey tests
+   - Integration validation
+   - Run on schedule (nightly) and manual triggers
+   - Tagged with `@e2e` for selective execution
+
+## Available Scripts
+
+- `npm run test:ui` - Run UI tests
+- `npm run test:api` - Run API tests
+- `npm run test:e2e` - Run E2E tests only
+- `npm run test:smoke` - Run smoke tests (tagged with @smoke)
+- `npm run test:all` - Run all tests (UI, API, and E2E)
+- `npm run test:ci` - Run tests for CI (excludes E2E)
+- `npm run test:nightly` - Run complete test suite including E2E
+
 ## CI/CD Pipeline
 
 The project is configured with GitHub Actions for continuous integration. The pipeline:
