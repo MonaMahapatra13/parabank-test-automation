@@ -1,5 +1,5 @@
 import { test } from "./fixtures";
-import { AccountPage } from "../pages/AccountPage";
+import { AccountPage } from "../../pages/AccountPage";
 
 test.describe("Account Creation and Overview", () => {
   test("Create savings account and verify in overview", async ({

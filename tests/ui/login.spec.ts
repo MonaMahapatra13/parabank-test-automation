@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures';
-import { HomePage } from '../pages/HomePage';
-import { LoginPage } from '../pages/LoginPage';
-import { getStoredTestUser } from '../utils/testData';
+import { HomePage } from '../../pages/HomePage';
+import { LoginPage } from '../../pages/LoginPage';
+import { getStoredTestUser } from '../../utils/testData';
 
 test.describe('Login Functionality', () => {
   test('Login with stored test user credentials', async ({ page }) => {

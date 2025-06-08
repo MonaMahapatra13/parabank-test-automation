@@ -1,5 +1,5 @@
 import { test } from "./fixtures";
-import { HomePage } from "../pages/HomePage";
+import { HomePage } from "../../pages/HomePage";
 
 test.describe("Global Navigation", () => {
   test("Navigation menu should be visible after login", async ({

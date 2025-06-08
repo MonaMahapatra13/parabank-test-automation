@@ -1,6 +1,6 @@
 import { test } from "./fixtures";
-import { BillPayPage } from "../pages/BillPayPage";
-import { AccountPage } from "../pages/AccountPage";
+import { BillPayPage } from "../../pages/BillPayPage";
+import { AccountPage } from "../../pages/AccountPage";
 
 test.describe("Bill Payment", () => {
   test("Pay a bill from the newly created account", async ({

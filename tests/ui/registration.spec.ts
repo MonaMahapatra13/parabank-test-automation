@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
-import { generateUniqueUsername } from "../utils/generateUsername";
-import { HomePage } from "../pages/HomePage";
-import { RegisterPage } from "../pages/RegisterPage";
+import { generateUniqueUsername } from "../../utils/generateUsername";
+import { HomePage } from "../../pages/HomePage";
+import { RegisterPage } from "../../pages/RegisterPage";
 
 test.describe("User Registration", () => {
   test("Register new user with unique username", async ({ page }) => {

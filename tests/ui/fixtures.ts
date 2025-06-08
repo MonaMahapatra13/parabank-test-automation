@@ -1,7 +1,7 @@
 import { test as base } from "@playwright/test";
-import { HomePage } from "../pages/HomePage";
-import { LoginPage } from "../pages/LoginPage";
-import { getStoredTestUser } from "../utils/testData";
+import { HomePage } from "../../pages/HomePage";
+import { LoginPage } from "../../pages/LoginPage";
+import { getStoredTestUser } from "../../utils/testData";
 
 // Declare the types of our fixtures
 type TestFixtures = {
